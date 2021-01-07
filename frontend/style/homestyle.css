@@ -1,21 +1,34 @@
 
 body{
-    display: flex;
+    display: flex; 
     font-size: 24px;
-    align-items: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.container{
+    width: 100vw;
 }
 
 #menu{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 80vw;
+    align-content: stretch;
+    margin: 10px;
+    box-sizing: border-box;
 }
 
 .subscriptionbox{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .subscriptionleft{
@@ -23,14 +36,22 @@ body{
     align-items: center;
 }
 
-.subscriptionprice{
-    align-self: flex-end;
+.totalpricebox{
+    text-align: right;
+    margin-right: 10px;
+}
+
+.buttondiv{
+    display: flex;
+    justify-content: center;
 }
 
 .plusbutton{
+    display: block;
     border-radius: 50%;
     border-style: solid;
     border-color: black;
     color: black;
     text-decoration: none;
+    align-self: center;
 }
