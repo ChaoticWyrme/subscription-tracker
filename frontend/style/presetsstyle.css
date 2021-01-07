@@ -30,15 +30,17 @@ h1{
 }
 
 .preseticons a:active{
-    background-color: gray;
-    text
+    background-color:#ddd;
 }
 
 .subscription_presets img{
-    height: 60px;
     width: 60px;
-    border-radius: 50%;
-    border: 1px solid #021a40;
+}
+
+.iconbox{
+    height: 60px;
+    display: flex;
+    align-items: center;
 }
 
 .presettop{
