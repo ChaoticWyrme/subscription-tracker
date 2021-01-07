@@ -1,0 +1,41 @@
+h1{
+    margin: 10px 10px 0 10px;
+}
+
+.subscription_presets{
+    display: flex;
+    flex-direction: column;
+}
+
+.preseticons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.preseticons a{
+    text-decoration: none;
+    color: black;
+    width: 80px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.preseticons a:hover{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.preseticons a:active{
+    background-color: gray;
+    text
+}
+
+.subscription_presets img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid #021a40;
+}
