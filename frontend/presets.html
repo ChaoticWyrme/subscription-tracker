@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Subscription Presets</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/presetsstyle.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 
   </head>
   <body>
 
     <!--generate with javascript later-->
     <div class="subscription_presets">
-      <h1>Select a subscription</h1>
-      <div class="preseticons">
+      <div class="presettop">
+        <a href="home.html" class="presetback">&#8249;</a>
+        <h1>Select a subscription</h1>
+      </div>
+      
+      <div class="preseticons" id="preseticons">
+        <!--
         <a href="#"><img src="icon.png" alt="">Netflix Basic, $5.99</a>
         <a href="#"><img src="icon.png" alt="">Netflix Medium, $7.99</a>
         <a href="#"><img src="icon.png" alt="">Netflix Big, $10.99</a>
@@ -25,11 +29,14 @@
         <a href="#"><img src="icon.png" alt="">Netflix Big, $10.99</a>
         <a href="#"><img src="icon.png" alt="">Hulu, $5.99</a>
         <a href="#"><img src="icon.png" alt="">HBO Max, $8.99</a>
-
+        
         <a href="add.html"><img src="icon.png" alt="">Other</a>
+        -->
       </div>
     </div>
 
+
+    <scrpt src="js/presetsscripts.js"></scrpt>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

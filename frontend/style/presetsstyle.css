@@ -1,5 +1,6 @@
 h1{
     margin: 10px 10px 0 10px;
+    font-size: 16px;
 }
 
 .subscription_presets{
@@ -38,4 +39,24 @@ h1{
     width: 60px;
     border-radius: 50%;
     border: 1px solid #021a40;
+}
+
+.presettop{
+    display: flex;
+    align-items: center;
+}
+
+.presetback{
+    text-decoration: none;
+    color: black;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    padding: 8px 16px;
+    margin: 10px 0px 0px 10px;
+}
+
+.presettop a:hover{
+    background-color: #ddd;
+    text-decoration: none;
+    color: black;
 }
