@@ -2,14 +2,15 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Front End Test</title>
+    <title>Front End Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style/homestyle.css">
     <link rel="stylesheet" href="style/style.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    
 </head>
 <body>
-    <div class="container">
+    <div class="homecontainer">
         <div id="menu">
             <div id="hometitle">
                 <p>Title</p>
@@ -21,8 +22,11 @@
 
                     <p class="subscriptionname">Name</p>
                 </div>
-                <div>
+                <div class="subscriptionright">
                     <p class="subscriptionprice">$10.99</p>
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
 
