@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "backend", "backend.csproj", "{4E886323-C716-44E3-9236-DA2A414795E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubWatchApi", "SubWatchApi.csproj", "{4E886323-C716-44E3-9236-DA2A414795E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
