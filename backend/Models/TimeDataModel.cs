@@ -14,7 +14,9 @@ namespace SubWatchApi.Models
         
         public string ServiceName { get; set; }
 
-        [ForeignKey("ServiceName")]
+        public long ServiceId { get; set; }
+
+        [ForeignKey("ServiceId")]
         public virtual ServiceInfo Service { get; set; }
 
         public TimeSpan UsedTime { get
@@ -28,10 +30,10 @@ namespace SubWatchApi.Models
 
     public class TimeDataExtensionDTO
     {
-        public string Url;
+        public string Url { get; set; }
         [JsonProperty("start")]
-        public DateTime StartTime;
+        public DateTime StartTime { get; set; }
         [JsonProperty("end")]
-        public DateTime EndTime;
+        public DateTime EndTime { get; set; }
     }
 }

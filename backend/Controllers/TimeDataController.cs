@@ -45,6 +45,7 @@ namespace SubWatchApi.Controllers
             var service = _context.Services.Where(service => service.Url == extensionData.Url).FirstOrDefault();
             var timeData = new TimeData
             {
+                ServiceId = service.Id,
                 ServiceName = service.Name,
                 StartTime = extensionData.StartTime,
                 EndTime = extensionData.EndTime,

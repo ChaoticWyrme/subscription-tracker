@@ -20,16 +20,26 @@ namespace SubWatchApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SubWatchContext>(opt => opt.UseInMemoryDatabase("SubWatch"));
             services.AddControllers();
+            //services.AddEntityFrameworkSqlite().AddDbContext<SubWatchContext>(options =>
+            //    options.UseSqlite(Configuration.GetConnectionString("SubWatchConnection"))
+            //);
+            services.AddDbContext<SubWatchContext>(opt => opt.UseInMemoryDatabase("SubWatch"));
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SubWatchApi");
+                });
             }
 
             app.UseHttpsRedirection();

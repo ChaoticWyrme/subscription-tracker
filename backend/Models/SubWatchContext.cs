@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 
 namespace SubWatchApi.Models
 {
@@ -13,9 +17,10 @@ namespace SubWatchApi.Models
 
         public DbSet<TimeData> TimeDatas { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<TimeData>().Property<>
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TimeData>().HasNoKey();
+            modelBuilder.Entity<ServiceInfo>().Property(model => model.Id).ValueGeneratedOnAdd();
+        }
     }
 }

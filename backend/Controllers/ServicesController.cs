@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SubWatchApi.Models;
 
-namespace backend.Controllers
+namespace SubWatchApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -28,10 +28,10 @@ namespace backend.Controllers
         }
 
         // GET: api/Services/5
-        [HttpGet("{name}")]
-        public async Task<ActionResult<ServiceInfo>> GetServiceInfo(long name)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ServiceInfo>> GetServiceById(long id)
         {
-            var serviceInfo = await _context.Services.FindAsync(name);
+            var serviceInfo = await _context.Services.FindAsync(id);
 
             if (serviceInfo == null)
             {
@@ -39,6 +39,13 @@ namespace backend.Controllers
             }
 
             return serviceInfo;
+        }
+
+        // GET: api/Services?name=Netflix
+        [HttpGet("Search")]
+        public async Task<List<ServiceInfo>> GetServicesByName([FromQuery] string name)
+        {
+            return await _context.Services.Where(service => service.Name == name).ToListAsync();
         }
 
         // PUT: api/Services/5
@@ -75,12 +82,16 @@ namespace backend.Controllers
         // POST: api/Services
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ServiceInfo>> PostServiceInfo(ServiceInfo serviceInfo)
+        public async Task<ActionResult<ServiceInfo>> PostServiceInfo([FromBody] ServiceInfo serviceInfo)
         {
+            if (serviceInfo.IconUrl == null) serviceInfo.IconUrl = "";
+            if (serviceInfo.Url == null) serviceInfo.Url = "";
+            if (serviceInfo.Name == null) return BadRequest();
+            Console.WriteLine("URL: " + serviceInfo.Url);
             _context.Services.Add(serviceInfo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetServiceInfo), new { name = serviceInfo.Name }, serviceInfo);
+            return CreatedAtAction(nameof(GetServiceById), new { id = serviceInfo.Id }, serviceInfo);
         }
 
         // DELETE: api/ServiceInfos/5
