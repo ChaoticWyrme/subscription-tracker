@@ -3,7 +3,7 @@
   "description": "Testing front end",
   "version" : 1.0,
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icon.jpg",
     "default_popup": "home.html"
 
   },
