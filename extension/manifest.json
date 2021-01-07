@@ -1,0 +1,21 @@
+{
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "58.0a1"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Subscription Tracker",
+    "default_popup": "extension.html"
+  },
+  "description": "An extension that keeps track of sites and time spent on each site.",
+  "homepage_url": "https://github.com/ChaoticWyrme/subscription-tracker",
+  "manifest_version": 2,
+  "name": "Subscription Tracker",
+  "permissions": ["tabs", "unlimitedStorage", "storage"],
+  "version": "1.0"
+}
