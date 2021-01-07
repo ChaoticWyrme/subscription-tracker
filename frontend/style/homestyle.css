@@ -1,0 +1,17 @@
+
+body{
+    display: flex;
+}
+
+#menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.subscriptionbox{
+    display: flex;
+}
+
+.plusbutton{
+    display: flex;
+}
