@@ -5,7 +5,7 @@
     }
   },
   "background": {
-    "scripts": ["extension/background.js","frontend/js/homescript.js","frontend/js/presetsscript.js"]
+    "scripts": ["extension/background.js","frontend/js/homescript.js","frontend/js/presetsscript.js","frontend/js/analysisscript.js"]
   },
   "browser_action": {
     "browser_style": true,

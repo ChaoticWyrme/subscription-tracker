@@ -70,6 +70,7 @@ fillpreseticons("preseticons");
 
 async function addpreset(subid){
   console.log(subid);
+  
   let storage = await browser.storage.local.get(["subList"]);
 
   let subList = storage["subList"] || [];
