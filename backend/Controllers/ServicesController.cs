@@ -41,19 +41,35 @@ namespace SubWatchApi.Controllers
             return serviceInfo;
         }
 
+        [HttpGet("MassGet")]
+        public async Task<List<ActionResult<ServiceInfo>>> GetServicesById([FromQuery] long[] idList)
+        {
+            var results = new List<ActionResult<ServiceInfo>>();
+            foreach (long id in idList)
+            {
+                results.Add(await GetServiceById(id));
+            }
+            return results;
+        }
+
         // GET: api/Services?name=Netflix
         [HttpGet("Search")]
-        public async Task<List<ServiceInfo>> GetServicesByName([FromQuery] string name)
+        public IEnumerable<ServiceInfo> SearchServices([FromQuery] ServiceSearchParameters searchParams)
         {
-            return await _context.Services.Where(service => service.Name == name).ToListAsync();
+            Console.WriteLine("Search Parameters: ");
+            DebugPrint.PrintProperties(searchParams);
+            return searchParams.Search(_context.Services);
         }
+
+        //[HttpGet("{username}/Search")]
+        //public IEnumerable<ServiceInfo> 
 
         // PUT: api/Services/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{name}")]
-        public async Task<IActionResult> PutServiceInfo(string name, ServiceInfo serviceInfo)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutServiceInfo(long id, ServiceInfo serviceInfo)
         {
-            if (name != serviceInfo.Name)
+            if (id != serviceInfo.Id)
             {
                 return BadRequest();
             }
@@ -66,7 +82,7 @@ namespace SubWatchApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ServiceInfoExists(name))
+                if (!ServiceInfoExists(id))
                 {
                     return NotFound();
                 }
@@ -87,18 +103,50 @@ namespace SubWatchApi.Controllers
             if (serviceInfo.IconUrl == null) serviceInfo.IconUrl = "";
             if (serviceInfo.Url == null) serviceInfo.Url = "";
             if (serviceInfo.Name == null) return BadRequest();
-            Console.WriteLine("URL: " + serviceInfo.Url);
             _context.Services.Add(serviceInfo);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetServiceById), new { id = serviceInfo.Id }, serviceInfo);
         }
 
-        // DELETE: api/ServiceInfos/5
-        [HttpDelete("{name}")]
-        public async Task<IActionResult> DeleteServiceInfo(string name)
+        [HttpPost("MassCreate")]
+        public async Task<ActionResult<List<ServiceInfo>>> MassPostServiceInfo([FromBody] List<ServiceInfo> serviceInfoList)
         {
-            var serviceInfo = await _context.Services.FindAsync(name);
+            var results = new List<ServiceInfo>();
+            var failures = new List<ServiceInfo>();
+            foreach (ServiceInfo serviceInfo in serviceInfoList)
+            {
+                if (serviceInfo.IconUrl == null) serviceInfo.IconUrl = "";
+                if (serviceInfo.Url == null) serviceInfo.Url = "";
+                if (serviceInfo.Name == null)
+                {
+                    failures.Add(serviceInfo);
+                } else
+                {
+                    results.Add(serviceInfo);
+                }
+                _context.Services.Add(serviceInfo);
+            }
+            await _context.SaveChangesAsync();
+
+            if (failures.Count > 0)
+            {
+                return BadRequest(new {
+                    message =  "Invalid service(s)",
+                    invalidRequests = failures
+                });
+            }
+
+            if (results.Count == 0) return BadRequest("no objects provided");
+
+            return CreatedAtAction(nameof(GetServicesById), new { idList = results.Select(service => service.Id).ToArray() }, results);
+        }
+
+        // DELETE: api/ServiceInfos/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteServiceInfo(long id)
+        {
+            var serviceInfo = await _context.Services.FindAsync(id);
             if (serviceInfo == null)
             {
                 return NotFound();
@@ -110,9 +158,9 @@ namespace SubWatchApi.Controllers
             return NoContent();
         }
 
-        private bool ServiceInfoExists(string name)
+        private bool ServiceInfoExists(long id)
         {
-            return _context.Services.Any(e => e.Name == name);
+            return _context.Services.Any(e => e.Id == id);
         }
     }
 }
