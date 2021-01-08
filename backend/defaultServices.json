@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Netflix",
+    "price": 8.99,
+    "url": "netflix.com"
+  },
+  {
+    "name": "Hulu",
+    "price": 5.99,
+    "url": "hulu.com"
+  },
+  {
+    "name": "HBO Max",
+    "price": 14.99,
+    "url": "hbomax.com"
+  }
+]
