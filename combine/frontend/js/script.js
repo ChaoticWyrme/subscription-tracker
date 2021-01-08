@@ -30,7 +30,7 @@ document.querySelector(".add_subscription_form").addEventListener("submit", asyn
   // xhr.send(data);
 
   window.location.href = "home.html";
-
+  /*
   document.getElementById("subscriptions").innerHTML += `<div id="subscriptions">
               <div class="subscriptionbox">
                   <div class="subscriptionleft">
@@ -45,5 +45,5 @@ document.querySelector(".add_subscription_form").addEventListener("submit", asyn
                       </button>
                   </div>
               </div>
-            </div>`;
+            </div>`;*/
 });
