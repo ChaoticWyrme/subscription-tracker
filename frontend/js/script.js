@@ -9,9 +9,9 @@ document.querySelector('.add_subscription_form').addEventListener("submit", e =>
   })
 
   const xhr = new XMLHttpRequest()
-  xhr.open("POST", url)
+  xhr.open("POST", "http://chaoticwyrme-001-site1.itempurl.com/")
   xhr.onreadystatechange = function() {
-    if (xhr.readyState === XHR.DONE) {
+    if (xhr.readyState === xhr.DONE) {
       window.location.href = "home.html"
     }
   }
