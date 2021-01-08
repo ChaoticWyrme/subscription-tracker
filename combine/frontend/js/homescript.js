@@ -22,8 +22,6 @@ const makesubboxes = async () => {
                     </div>
                     <div class="subscriptionright">
                         <p class="subscriptionprice">${subList[k].price}</p>
-                                            <a href="#"><img src="images/graph.png" class="graphIcon" width="30" height="30"></a>
-
                         <button type="button" class="close" aria-label="Close" onclick="removesub(${subList[k].name})">
                             <span aria-hidden="true">&times;</span>
                         </button>

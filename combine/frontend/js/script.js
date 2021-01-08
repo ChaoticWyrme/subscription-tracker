@@ -39,7 +39,6 @@ document.querySelector(".add_subscription_form").addEventListener("submit", asyn
                   </div>
                   <div class="subscriptionright">
                       <p class="subscriptionprice">$${price}</p>
-                      <a href="#"><img src="images/graph.png" class="graphIcon" width="30" height="30"></a>
                       <button type="button" class="close" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                       </button>
