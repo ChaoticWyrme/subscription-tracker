@@ -13,13 +13,23 @@ Array of objects, each object having the following properties:
 const logSite = async () => {
   // URL cannot be empty (e.g. opening new tab)
 
-  let storage = await browser.storage.local.get(["subTimes", "currentTabData"]);
+  let storage = await browser.storage.local.get(["subTimes", "currentTabData", "data"]);
 
   let subTimes = storage["subTimes"] || [];
+  let data = storage["data"] || [];
   let currentTab = storage["currentTabData"];
   if (currentTab !== undefined) {
     currentTab.end = new Date();
     subTimes.push(currentTab);
+    let target = data.find((entry) => entry.url === currentTab.domain);
+    let sessTime = Math.floor((currentTab.end - currentTab.start) / 1000);
+    if (target !== undefined) {
+      target.time += sessTime;
+    } else {
+      data.push({ url: currentTab.domain, time: sessTime });
+    }
+    console.log("Leaving " + currentTab.domain);
+    console.log(data);
   }
 
   let querying = await browser.tabs.query({ currentWindow: true, active: true });
@@ -40,6 +50,7 @@ const logSite = async () => {
   await browser.storage.local.set({
     subTimes,
     currentTabData: currentTab,
+    data,
   });
 };
 
