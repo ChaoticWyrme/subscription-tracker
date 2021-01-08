@@ -1,11 +1,7 @@
 
-async function makegrid(gridid){
+function makegrid(gridid){
     console.log(gridid);
-    let storage = await browser.storage.local.get(["subList"]);
-
-    let subList = storage["subList"] || [];
-    console.log(subList);
-    if(subList.length > 0){
+    if(subs.length > 0){
         document.getElementById(gridid).innerHTML = "";
         
         //header
@@ -27,9 +23,9 @@ async function makegrid(gridid){
             </div>
         `;*/
 
-        for(var k = 0; k < subList.length; k++){
+        for(var k = 0; k < subs.length; k++){
 
-            let timewatched = 120.0;
+            let timewatched = subs[k].timewatched;
 
             let minperdollar = (parseToFloat(timewatched)/parseToFloat(subList[k].price)).toFixed(2);
 
@@ -43,7 +39,7 @@ async function makegrid(gridid){
             }
 
             document.getElementById(gridid).innerHTML += `
-                <p>${subList[k].name} (${subList[k].price}): ${timewatched} minutes watched, ${minperdollar} Minutes per Dollar, ${verdict}.
+                <p>${subs[k].name} (${subs[k].price}): ${timewatched} minutes watched, ${minperdollar} Minutes per Dollar, ${verdict}.
             `
 
             /*

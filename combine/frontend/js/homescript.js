@@ -1,4 +1,5 @@
 
+let subs = [];
 
 //make the subscription boxes
 //async function makesubboxes(){
@@ -11,10 +12,17 @@ const makesubboxes = async () => {
 
     document.getElementById("subscriptions").innerHTML = "";
 
+    subs=[];
+
     let totalprice = 0.0;
     console.log(totalprice);
     if(subList.length > 0){
         for(var k = 0; k < subList.length; k++){
+            subs.push({
+                name: subList[k].name,
+                price: subList[k].price,
+                timewatched: k*60
+            })
             totalprice += parseFloat(subList[k].price);
             console.log(totalprice);
             document.getElementById("subscriptions").innerHTML += `
@@ -35,6 +43,33 @@ const makesubboxes = async () => {
             `
         }
     }
+
+    let samplenetflix = 
+        {
+            id: "netflix",
+            description: "Netflix Basic",
+            url: "www.netflix.com",
+            price: 8.99,
+            icon: "images/netflixicon.png",
+          };
+    
+          totalprice += parseFloat(samplenetflix.price);
+          console.log(totalprice);
+          document.getElementById("subscriptions").innerHTML += `
+              <div class="subscriptionbox" id="${samplenetflix.id}">
+                  <div class="subscriptionleft">
+                      <img src="${samplenetflix.icon}" class="subscriptionicon" width="80" height="60">
+
+                      <p class="subscriptionname">${samplenetflix.description}</p>
+                  </div>
+                  <div class="subscriptionright">
+                      <p class="subscriptionprice">${samplenetflix.price}</p>
+                      <button type="button" class="close" aria-label="Close" onclick="removesub(${samplenetflix.description})">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+
+                  </div>
+    `
     
     document.getElementById("priceplace").innerHTML =  `Total: $${totalprice.toFixed(2)}`;
 }
