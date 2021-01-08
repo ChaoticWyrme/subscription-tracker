@@ -1,9 +1,15 @@
 
 body{
     display: flex; 
-    font-size: 16px;
+    font-size: 20px;
     align-items: stretch;
     flex-direction: column;
+}
+
+#hometitle{
+    display: flex;
+    justify-content: center;
+    margin-bottom:10px;;
 }
 
 .homecontainer{
@@ -50,7 +56,8 @@ body{
 }
 
 .totalpricebox{
-    text-align: right;
+    display:flex;
+    justify-content: center;
     margin-right: 10px;
 }
 

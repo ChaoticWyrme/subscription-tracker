@@ -62,15 +62,15 @@ async function removesub(subid){
 
     let index = -1
     for(var k = 0; k < subList.length; k++){
-        if(subList[index].domain === idtodomain[subid]){
+        if(subList[k].url === idtodomain[subid]){
             index = k;
             break;
         }
     }
     if (index !== -1) {
-        currentsubs.splice(index, 1);
+        subList.splice(index, 1);
     }
 
-    await browser.storage.local.set({currentsubs});
+    await browser.storage.local.set({subList});
 
 }
