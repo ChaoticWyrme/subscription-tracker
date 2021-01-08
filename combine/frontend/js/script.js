@@ -9,11 +9,12 @@ document.querySelector(".add_subscription_form").addEventListener("submit", asyn
   let name = document.getElementById("sub_name").value;
   let price = document.getElementById("price").value;
   let url = document.getElementById("sub_url").value;
-
+  let icon = "icon.png";
   subList.push({
     name,
     price,
     url,
+    icon
   });
 
   console.log(subList);
@@ -39,7 +40,6 @@ document.querySelector(".add_subscription_form").addEventListener("submit", asyn
                   </div>
                   <div class="subscriptionright">
                       <p class="subscriptionprice">$${price}</p>
-                      <a href="#"><img src="images/graph.png" class="graphIcon" width="30" height="30"></a>
                       <button type="button" class="close" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                       </button>
