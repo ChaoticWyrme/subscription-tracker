@@ -15,7 +15,7 @@
                 <p>Title</p>
             </div>
             <!--do this part in js later-->
-            <div class="subscriptionbox">
+            <div class="subscriptionbox" id="testsubid">
                 <div class="subscriptionleft">
                     <img src="icon.png" class="subscriptionicon" width="60" height="60">
 
@@ -25,7 +25,7 @@
                     <p class="subscriptionprice">$10.99</p>
 										<a href="#"><img src="images/graph.png" class="graphIcon" width="30" height="30"></a>
 
-                    <button type="button" class="close" aria-label="Close">
+                    <button type="button" class="close" aria-label="Close" onclick="removesub(subid)">
                         <span aria-hidden="true">&times;</span>
                     </button>
 
@@ -60,6 +60,7 @@
         </a>
     </div>
 -->
+    <script src="js/homescript.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
