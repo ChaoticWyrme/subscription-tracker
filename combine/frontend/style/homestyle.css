@@ -1,0 +1,85 @@
+
+body{
+    display: flex; 
+    font-size: 16px;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.homecontainer{
+    width: 100vw;
+}
+
+.homecontainer p{
+    margin: 0;
+}
+
+#menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: stretch;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.subscriptionbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.subscriptionleft{
+    display: flex;
+    align-items: center;
+}
+
+.subscriptionright{
+    display: flex;
+    align-items: center;
+}
+
+.subscriptionname{
+    padding-left: 10px;
+}
+
+.totalpricebox{
+    text-align: right;
+    margin-right: 10px;
+}
+
+.buttondiv{
+    display: flex;
+    justify-content: center;
+}
+
+.plusbutton{
+    display: block;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-decoration: none;
+    align-self: center;
+}
+
+.close{
+    margin-left: 10px;
+    font-size: 36px;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+a:hover{
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+}
