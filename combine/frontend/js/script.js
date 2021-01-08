@@ -18,6 +18,8 @@ document.querySelector(".add_subscription_form").addEventListener("submit", asyn
 
   console.log(subList);
 
+  await browser.storage.local.set({ subList });
+
   // const xhr = new XMLHttpRequest();
   // xhr.open("POST", "http://chaoticwyrme-001-site1.itempurl.com/");
   // xhr.onreadystatechange = function () {
