@@ -9,11 +9,12 @@ document.querySelector(".add_subscription_form").addEventListener("submit", asyn
   let name = document.getElementById("sub_name").value;
   let price = document.getElementById("price").value;
   let url = document.getElementById("sub_url").value;
-
+  let icon = "icon.png";
   subList.push({
     name,
     price,
     url,
+    icon
   });
 
   console.log(subList);

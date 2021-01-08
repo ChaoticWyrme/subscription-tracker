@@ -11,12 +11,16 @@ const makesubboxes = async () => {
 
     document.getElementById("subscriptions").innerHTML = "";
 
+    let totalprice = 0.0;
+    console.log(totalprice);
     if(subList.length > 0){
         for(var k = 0; k < subList.length; k++){
+            totalprice += parseFloat(subList[k].price);
+            console.log(totalprice);
             document.getElementById("subscriptions").innerHTML += `
                 <div class="subscriptionbox" id="${subList[k].name}">
                     <div class="subscriptionleft">
-                        <img src="icon.png" class="subscriptionicon" width="60" height="60">
+                        <img src="${subList[k].icon}" class="subscriptionicon" width="60" height="60">
 
                         <p class="subscriptionname">${subList[k].name}</p>
                     </div>
@@ -30,13 +34,11 @@ const makesubboxes = async () => {
             
             `
         }
-    } else {
-        document.getElementById("subscriptions").innerHTML = `hello`;
     }
     
-    
+    document.getElementById("priceplace").innerHTML =  `Total: $${totalprice.toFixed(2)}`;
 }
-
+console.log("hello")
 makesubboxes();
 
 function isEmpty(obj) {
