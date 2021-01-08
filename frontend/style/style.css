@@ -54,12 +54,13 @@ h1{
     text
 }
 
+/*
 .subscription_presets img{
     height: 60px;
     width: 60px;
     border-radius: 50%;
     border: 1px solid #021a40;
-}
+}*/
 
 .presettop{
     display: flex;
