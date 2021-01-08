@@ -29,7 +29,6 @@ const logSite = async () => {
       data.push({ url: currentTab.domain, time: sessTime });
     }
     console.log("Leaving " + currentTab.domain);
-    console.log(data);
   }
 
   let querying = await browser.tabs.query({ currentWindow: true, active: true });
