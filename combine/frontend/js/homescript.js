@@ -70,7 +70,11 @@ const makesubboxes = async () => {
 
                   </div>
     `
-    
+    subs.push({
+        name:"Netflix",
+        price:8.99,
+        timewatched:500
+    })
     document.getElementById("priceplace").innerHTML =  `Total: $${totalprice.toFixed(2)}`;
 }
 console.log("hello")
