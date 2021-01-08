@@ -10,9 +10,9 @@ Array of objects, each object having the following properties:
   - exit out: create new object with end time
 */
 
-browser.tabs.onActivated.addListener(async () => {
+const logSite = async () => {
   // URL cannot be empty (e.g. opening new tab)
-  
+
   let storage = await browser.storage.local.get(["subTimes", "currentTabData"]);
 
   let subTimes = storage["subTimes"] || [];
@@ -21,8 +21,7 @@ browser.tabs.onActivated.addListener(async () => {
     currentTab.end = new Date();
     subTimes.push(currentTab);
   }
-  
-  
+
   let querying = await browser.tabs.query({ currentWindow: true, active: true });
   let fullURL = querying[0].url;
   let components = fullURL.split("//");
@@ -30,19 +29,19 @@ browser.tabs.onActivated.addListener(async () => {
   if (components.length !== 1) {
     let domain = components[1].split("/")[0];
     currentTab = {
-      url: domain,
-      start: new Time()
+      domain: domain,
+      start: new Date(),
     };
     console.log("Accessing " + currentTab.domain + " at " + currentTab.start);
   } else {
     currentTab = undefined;
   }
-  
+
   await browser.storage.local.set({
     subTimes,
-    currentTabData: currentTab
+    currentTabData: currentTab,
   });
+};
 
-  // logging purposes
-  let target = subTimes[0];
-});
+browser.tabs.onActivated.addListener(logSite);
+browser.webNavigation.onHistoryStateUpdated.addListener(logSite);
